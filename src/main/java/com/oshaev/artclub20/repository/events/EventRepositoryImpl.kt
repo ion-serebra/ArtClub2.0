@@ -20,18 +20,36 @@ class EventRepositoryImpl(val usersReference:DatabaseReference): EventsRepositor
     }
 
     override fun getEvents(): PublishSubject<List<EventData>> {
-        var eventsList = mutableListOf<EventData>()
+        var eventsList = listOf<EventData>()
         var eventsListData = PublishSubject.create<List<EventData>>()
+
+        eventsReference.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(dataSnapshot: DataSnapshot) {
+                for (postSnapshot in dataSnapshot.children) {
+                    Log.d("EventRepoValue", postSnapshot.toString())
+                }
+            }
+
+            override fun onCancelled(databaseError: DatabaseError) {
+                // Getting Post failed, log a message
+                //Log.w(TAG, "loadPost:onCancelled", databaseError.toException())
+                // ...
+            }
+        })
+
 
         eventsReference.addChildEventListener(object: ChildEventListener {
             override fun onChildAdded(snapshot: DataSnapshot, previousChildName: String?) {
                 if(previousChildName!=prevChildName)
                 {
-                    if (snapshot.getValue(EventData::class.java) != null) {
-                        var eventData = snapshot.getValue(EventData::class.java)!!
-                        eventsList.add(eventData)
+                    if (snapshot != null) {
+                        // var eventData = snapshot.getValue(EventData::class.java)!!
+
+                        val ti = object: GenericTypeIndicator<Map<String, EventData>>() {}
+                        eventsList = snapshot.getValue(ti)!!.map{ it.value }.sortedBy { it.timestamp }
                         eventsListData.onNext(Collections.unmodifiableList(eventsList))
-                        Log.d("EventRepo", eventData.title)
+
+                        //Log.d("EventRepo", eventData.title)
                         Log.d("EventRepo", eventsList.size.toString())
                         prevChildName = previousChildName
                     }

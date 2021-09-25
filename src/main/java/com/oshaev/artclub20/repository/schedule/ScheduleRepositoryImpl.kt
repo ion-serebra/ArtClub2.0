@@ -9,6 +9,7 @@ import com.oshaev.artclub20.application.ArtClubApplication
 import com.oshaev.artclub20.data.remote.firebase.studioschedule.ScheduleItemDto
 import com.oshaev.artclub20.repository.BookingModel
 import com.oshaev.artclub20.repository.CommentModel
+import com.oshaev.artclub20.repository.events.EventData
 import io.reactivex.rxjava3.subjects.PublishSubject
 import java.util.*
 
@@ -49,17 +50,23 @@ class ScheduleRepositoryImpl(val auth: FirebaseAuth, val realtimeDatabase: Fireb
         cabinet: String,
         day: Calendar
     ): PublishSubject<List<ScheduleItemDto>> {
-        var scheduleList = mutableListOf<ScheduleItemDto>()
+        var scheduleList = listOf<ScheduleItemDto>()
         val schedulePublishSubject = PublishSubject.create<List<ScheduleItemDto>>()
 
         bookingsReference.addChildEventListener(object: ChildEventListener {
             override fun onChildAdded(snapshot: DataSnapshot, previousChildName: String?) {
                 //if(snapshot.getValue(ScheduleItemDto::class.java)?.cabinet.equals())
+
+                val ti = object: GenericTypeIndicator<Map<String, ScheduleItemDto>>() {}
+                if(snapshot.getValue(ti) != null) {
+                    scheduleList = snapshot.getValue(ti)!!.map { it.value }.filter { it.cabinet.equals(cabinet) }
+                }
+
                 var dto = snapshot.getValue(ScheduleItemDto::class.java)
                 if (dto != null) {
                     if (dto.cabinet.
                         equals(cabinet)) {
-                        scheduleList.add(dto)
+                        //scheduleList.add(dto)
                         Log.d("ScheduleRepository", "Added: " + dto.toString())
                     }
                 }
