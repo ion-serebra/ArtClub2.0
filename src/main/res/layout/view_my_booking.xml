@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:elevation="6dp"
+    app:cardCornerRadius="16dp"
+    tools:parentTag="androidx.cardview.widget.CardView">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_marginTop="12dp"
+            android:id="@+id/my_booking_remove"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+            android:drawableEnd="@drawable/ic_baseline_remove_circle_outline_24"
+            android:text="Удалить "
+            android:textColor="@android:color/holo_red_light"
+            android:textSize="14sp"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_marginEnd="8dp"
+            android:id="@+id/my_booking_accept"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableEnd="@drawable/ic_accept"
+            android:text="Одобрить "
+            android:textColor="@color/light_green"
+            android:textSize="14sp"
+            android:textStyle="italic"
+            app:layout_constraintTop_toTopOf="@id/my_booking_remove"
+            app:layout_constraintEnd_toStartOf="@id/my_booking_remove"
+            />
+
+        <TextView
+            android:id="@+id/my_booking_user_title"
+            style="@style/title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="12dp"
+            android:text="Резидент:"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/my_booking_user_fio"
+            style="@style/default_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="пользователь"
+            app:layout_constraintStart_toStartOf="@id/my_booking_user_title"
+            app:layout_constraintTop_toBottomOf="@id/my_booking_user_title" />
+
+        <TextView
+            android:id="@+id/my_booking_title"
+            style="@style/title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Запись:"
+            app:layout_constraintStart_toStartOf="@id/my_booking_user_fio"
+            app:layout_constraintTop_toBottomOf="@id/my_booking_user_fio" />
+
+        <TextView
+            android:id="@+id/my_booking_cabinet"
+            style="@style/default_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/my_booking_title"
+            app:layout_constraintTop_toBottomOf="@id/my_booking_title"
+            tools:text="Кабинет 124" />
+
+        <TextView
+            android:id="@+id/my_booking_date"
+            style="@style/default_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/my_booking_cabinet"
+            app:layout_constraintTop_toBottomOf="@id/my_booking_cabinet"
+            tools:text="3 августа" />
+
+        <TextView
+            android:id="@+id/my_booking_time"
+            style="@style/default_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="@id/my_booking_cabinet"
+            app:layout_constraintTop_toBottomOf="@id/my_booking_date"
+            tools:text="13:20-14:40" />
+
+        <TextView
+            android:id="@+id/my_booking_instruments_title"
+            style="@style/title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Инструменты:"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="@id/my_booking_cabinet"
+            app:layout_constraintTop_toBottomOf="@id/my_booking_time" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/my_booking_instruments_recycler"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="16dp"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/my_booking_instruments_title" />
+
+        <TextView
+            android:id="@+id/my_booking_members_title"
+            style="@style/title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Другие резиденты:"
+            android:visibility="gone"
+            app:layout_constraintStart_toStartOf="@id/my_booking_title"
+            app:layout_constraintTop_toBottomOf="@id/my_booking_instruments_recycler" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/my_booking_members_recycler"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/my_booking_members_title" />
+
+        <TextView
+            android:id="@+id/my_booking_comments_title"
+            style="@style/title_text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="Комментарии:"
+            app:layout_constraintStart_toStartOf="@id/my_booking_title"
+            app:layout_constraintTop_toBottomOf="@id/my_booking_members_recycler" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/my_booking_comments_recycler"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="@dimen/activity_horizontal_margin"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/my_booking_comments_title" />
+
+        <EditText
+            android:id="@+id/my_booking_response_commnent"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="@dimen/activity_horizontal_margin"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="40dp"
+            android:background="@drawable/rect_stroke_primary"
+            android:backgroundTint="@android:color/transparent"
+            android:gravity="center_vertical"
+            android:hint="Введите сообщение..."
+            android:textSize="14dp"
+            android:textStyle="italic"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/my_booking_comments_recycler" />
+
+        <ImageView
+            android:id="@+id/my_booking_send_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_send"
+            app:layout_constraintBottom_toBottomOf="@id/my_booking_response_commnent"
+            app:layout_constraintStart_toEndOf="@id/my_booking_response_commnent"
+            app:layout_constraintTop_toTopOf="@id/my_booking_response_commnent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>

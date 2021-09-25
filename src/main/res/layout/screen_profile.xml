@@ -1,0 +1,380 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/darkviolet"
+    android:orientation="vertical"
+    tools:context=".presentation.profile.ProfileFragment">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/profile_title"
+                android:layout_width="0dp"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_marginHorizontal="16dp"
+                android:gravity="center_vertical"
+                android:text="Профиль"
+                android:textColor="@color/white"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/profile_user_avatar_card"
+                android:layout_width="176dp"
+                android:layout_height="176dp"
+                android:layout_centerInParent="true"
+                app:cardCornerRadius="88dp"
+                app:cardElevation="12dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/profile_title">
+
+                <ImageButton
+                    android:id="@+id/profile_user_avatar_img"
+                    android:layout_width="176dp"
+                    android:layout_height="176dp"
+                    android:layout_gravity="center_horizontal"
+                    android:background="@android:color/transparent"
+                    android:clickable="true"
+                    android:src="@drawable/add_photo_selector" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:layout_marginTop="88dp"
+                app:cardCornerRadius="16dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="@id/profile_user_avatar_card">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/profile_user_fio"
+                        style="@style/default_schedule_text"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="96dp"
+                        android:text="Имя Фамилия"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toBottomOf="@id/profile_user_fio">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/profile_account_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/profile_item_height">
+
+                            <ImageView
+                                android:id="@+id/profile_account_icon"
+                                android:layout_width="@dimen/profile_icon_size"
+                                android:layout_height="@dimen/profile_icon_size"
+                                android:layout_marginStart="@dimen/profile_margin_horizontal"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:srcCompat="@drawable/ic_account" />
+
+                            <TextView
+                                android:id="@+id/profile_account_title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:text="Аккаунт"
+                                style="@style/default_profile_text"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toEndOf="@id/profile_account_icon"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_marginEnd="@dimen/profile_margin_horizontal"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:srcCompat="@drawable/ic_disclosure_indicator" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1px"
+                                android:layout_marginHorizontal="16dp"
+                                android:background="@color/darkviolet"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/profile_my_events_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/profile_item_height">
+                            >
+
+                            <ImageView
+                                android:id="@+id/profile_my_events_icon"
+                                android:layout_width="@dimen/profile_icon_size"
+                                android:layout_height="@dimen/profile_icon_size"
+                                android:layout_marginStart="@dimen/profile_margin_horizontal"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:srcCompat="@drawable/ic_emoji_people" />
+
+                            <TextView
+                                android:id="@+id/profile_my_events_title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:text="Мои мероприятия"
+                                style="@style/default_profile_text"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toEndOf="@id/profile_my_events_icon"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_marginEnd="@dimen/profile_margin_horizontal"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:srcCompat="@drawable/ic_disclosure_indicator" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1px"
+                                android:layout_marginHorizontal="16dp"
+                                android:background="@color/darkviolet"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/profile_my_bookings_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/profile_item_height">
+                            >
+
+                            <ImageView
+                                android:id="@+id/profile_my_bookings_icon"
+                                android:layout_width="@dimen/profile_icon_size"
+                                android:layout_height="@dimen/profile_icon_size"
+                                android:layout_marginStart="@dimen/profile_margin_horizontal"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:srcCompat="@drawable/ic_calendar_" />
+
+                            <TextView
+                                android:id="@+id/profile_my_bookings_title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:text="Мои бронирования"
+                                style="@style/default_profile_text"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toEndOf="@id/profile_my_bookings_icon"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_marginEnd="@dimen/profile_margin_horizontal"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:srcCompat="@drawable/ic_disclosure_indicator" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1px"
+                                android:layout_marginHorizontal="16dp"
+                                android:background="@color/darkviolet"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/profile_settings_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/profile_item_height">
+                            >
+
+                            <ImageView
+                                android:id="@+id/profile_settings_icon"
+                                android:layout_width="@dimen/profile_icon_size"
+                                android:layout_height="@dimen/profile_icon_size"
+                                android:layout_marginStart="@dimen/profile_margin_horizontal"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:srcCompat="@drawable/ic_settings" />
+
+                            <TextView
+                                android:id="@+id/profile_settings_title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                style="@style/default_profile_text"
+                                android:text="Настройки"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toEndOf="@id/profile_settings_icon"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_marginEnd="@dimen/profile_margin_horizontal"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:srcCompat="@drawable/ic_disclosure_indicator" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1px"
+                                android:layout_marginHorizontal="16dp"
+                                android:background="@color/darkviolet"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/profile_share_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/profile_item_height">
+                            >
+
+                            <ImageView
+                                android:id="@+id/profile_share_icon"
+                                android:layout_width="@dimen/profile_icon_size"
+                                android:layout_height="@dimen/profile_icon_size"
+                                android:layout_marginStart="@dimen/profile_margin_horizontal"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:srcCompat="@drawable/ic_baseline_share_24" />
+
+                            <TextView
+                                android:id="@+id/profile_share_title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:text="Поделиться"
+                                style="@style/default_profile_text"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toEndOf="@id/profile_share_icon"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_marginEnd="@dimen/profile_margin_horizontal"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:srcCompat="@drawable/ic_disclosure_indicator" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1px"
+                                android:layout_marginHorizontal="16dp"
+                                android:background="@color/darkviolet"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/profile_info_layout"
+                            android:layout_width="match_parent"
+                            android:layout_height="@dimen/profile_item_height">
+                            >
+
+                            <ImageView
+                                android:id="@+id/profile_info_icon"
+                                android:layout_width="@dimen/profile_icon_size"
+                                android:layout_height="@dimen/profile_icon_size"
+                                android:layout_marginStart="@dimen/profile_margin_horizontal"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:srcCompat="@drawable/ic_info" />
+
+                            <TextView
+                                android:id="@+id/profile_info_title"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="8dp"
+                                android:text="О приложении"
+                                style="@style/default_profile_text"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintStart_toEndOf="@id/profile_info_icon"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <ImageView
+                                android:layout_width="24dp"
+                                android:layout_height="24dp"
+                                android:layout_marginEnd="16dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:srcCompat="@drawable/ic_disclosure_indicator" />
+
+                            <View
+                                android:layout_width="match_parent"
+                                android:layout_height="1px"
+                                android:layout_marginHorizontal="16dp"
+                                android:background="@color/darkviolet"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent" />
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </LinearLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </androidx.cardview.widget.CardView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
+
+</LinearLayout>
+

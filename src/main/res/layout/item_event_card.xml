@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="300dp"
+    android:layout_height="300dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="6dp">
+
+        <RelativeLayout
+            android:id="@+id/postCardLayout"
+            android:layout_width="300dp"
+            android:layout_height="300dp"
+            android:orientation="vertical"
+            android:padding="0dp">
+
+            <ImageView
+                android:id="@+id/postImagePreview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="0dp"
+                android:layout_marginBottom="0dp"
+                android:adjustViewBounds="true"
+                android:maxHeight="300dp"
+                android:scaleType="centerCrop"
+               />
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="@dimen/button_diam"
+                android:layout_height="@dimen/button_diam"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/user_avatar"
+                app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"/>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="@dimen/button_diam"
+                android:layout_height="@dimen/button_diam"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="50dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/user_avatar"
+                app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent"/>
+
+            <com.google.android.material.imageview.ShapeableImageView
+                android:layout_width="38dp"
+                android:layout_height="36dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="80dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/user_avatar"
+                app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerSize50Percent" />
+
+            <ImageButton
+                android:layout_width="@dimen/button_diam"
+                android:layout_height="@dimen/button_diam"
+                android:layout_alignParentBottom="true"
+                android:layout_marginLeft="110dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/add_circle_selector"/>
+
+            <ImageButton
+                android:id="@+id/fab"
+                android:layout_width="@dimen/button_diam"
+                android:layout_height="@dimen/button_diam"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="20dp"
+                android:layout_marginBottom="20dp"
+                android:onClick="@{clickHandler::onSubscribeEventClicked}"
+                android:background="@drawable/add_circle_selector" />
+
+        </RelativeLayout>
+
+    </androidx.cardview.widget.CardView>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="ShapeAppearanceOverlay.App.CornerSize50Percent" parent="">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="default_text">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/default_text_color</item>
+
+    </style>
+
+    <style name="default_functional_text">
+        <item name="android:textSize">16sp</item>
+        <item name="android:textColor">@color/default_text_color</item>
+        <item name="android:textStyle">italic</item>
+
+    </style>
+
+    <style name="TextHint">
+        <item name="android:textSize">18sp</item>
+        <item name="android:gravity">left</item>
+        <item name="android:textColorHint">@android:color/darker_gray</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="default_schedule_text">
+        <item name="android:textColor">@color/default_text_color</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
+    <style name="default_profile_text">
+        <item name="android:textColor">@color/default_text_color</item>
+        <item name="android:textSize">14sp</item>
+    </style>
+
+
+    <style name="title_text">
+        <item name="android:textSize">18sp</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+</resources>
