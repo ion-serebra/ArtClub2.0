@@ -33,7 +33,7 @@
 
             <TextView
                 android:id="@+id/add_booking_main_title"
-                style="@style/default_text"
+                style="@style/default16text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="16dp"
@@ -45,7 +45,7 @@
             <!-- Кабинет -->
             <TextView
                 android:id="@+id/add_booking_cabinet_title"
-                style="@style/default_text"
+                style="@style/default16text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -67,7 +67,7 @@
             <!-- Дата -->
             <TextView
                 android:id="@+id/add_booking_date_title"
-                style="@style/default_text"
+                style="@style/default16text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
@@ -77,7 +77,7 @@
 
             <TextView
                 android:id="@+id/add_booking_date_content"
-                style="@style/default_functional_text"
+                style="@style/italic16text"
                 android:layout_width="wrap_content"
 
                 android:layout_height="wrap_content"
@@ -101,7 +101,7 @@
             <TextView
                 android:id="@+id/add_booking_start_time_title"
 
-                style="@style/default_text"
+                style="@style/default16text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
@@ -111,7 +111,7 @@
 
             <TextView
                 android:id="@+id/add_booking_start_time_content"
-                style="@style/default_functional_text"
+                style="@style/italic16text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="40dp"
@@ -132,7 +132,7 @@
             <TextView
                 android:id="@+id/add_booking_end_time_title"
 
-                style="@style/default_text"
+                style="@style/default16text"
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -143,7 +143,7 @@
 
             <TextView
                 android:id="@+id/add_booking_end_time_content"
-                style="@style/default_functional_text"
+                style="@style/italic16text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="40dp"
@@ -171,7 +171,7 @@
 
             <TextView
                 android:id="@+id/add_booking_instrument_title"
-                style="@style/default_text"
+                style="@style/default16text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"
@@ -183,7 +183,7 @@
             <!-- Инструмент 1 -->
             <TextView
                 android:id="@+id/add_booking_instrument_one_title"
-                style="@style/default_text"
+                style="@style/default16text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dp"
@@ -207,7 +207,7 @@
             <TextView
                 android:id="@+id/add_booking_instrument_two_title"
 
-                style="@style/default_text"
+                style="@style/default16text"
 
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -230,7 +230,7 @@
             <TextView
                 android:id="@+id/add_booking_instrument_three_title"
 
-                style="@style/default_text"
+                style="@style/default16text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="4dp"
@@ -258,7 +258,7 @@
 
             <TextView
                 android:id="@+id/add_booking_members_title"
-                style="@style/default_text"
+                style="@style/default16text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="6dp"

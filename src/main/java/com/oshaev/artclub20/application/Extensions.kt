@@ -68,6 +68,8 @@ inline fun <reified R> Any.instanceIf(): R? {
 
 fun String.removeBranches(): String { // функция для того, чтобы убрать квадратные скобки из строки
     return this.replace("[", "").replace("]", "")
+
+
 }
 
 
