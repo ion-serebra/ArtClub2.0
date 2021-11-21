@@ -43,6 +43,7 @@ class ChatPreviewView
         val name: String = "DefaultName",
         val lastMessage: String = "DefaultComment",
         val imgUrl: String = "DefaultUrl",
+        val key: String = "",
         val timeStamp: Long = 0
     )
 }

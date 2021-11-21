@@ -18,3 +18,9 @@ class EventsRecyclerRow( // Заголовок
     hashCode: Int,
     val data: List<EventData>
 ): EventsRow(id, hashCode)
+
+class EventsCategoryRow( // Заголовок
+    id: String,
+    hashCode: Int,
+    val data: List<EventData>
+): EventsRow(id, hashCode)

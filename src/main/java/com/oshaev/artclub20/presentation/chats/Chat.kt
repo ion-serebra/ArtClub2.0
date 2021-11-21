@@ -5,9 +5,11 @@ import java.util.ArrayList
 
 class Chat {
 
-     val name: String? = null
-     val DBChild: String? = null
-     val id: String? = null
-     val accessLevel = 0
-     val chatMembers: List<User> = ArrayList<User>()
+     var name: String? = null
+     var DBChild: String? = null
+     var id: String? = null
+     var accessLevel = 0
+     var chatMembers: List<User> = ArrayList<User>()
+     var member1Key: String = ""
+     var member2Key: String = ""
 }

@@ -15,6 +15,7 @@ class ChatsViewModel: ViewModel() {
             it.map {
                 ChatPreviewView.Data(
                     id = it.id,
+                    key = it.key,
                     name = it.name,
                     lastMessage = it.messages.takeIf { it.isNotEmpty() }?.let { it.last().text} ?: "",
                     imgUrl = "",

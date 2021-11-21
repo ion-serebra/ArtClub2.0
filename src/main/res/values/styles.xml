@@ -34,6 +34,11 @@
         <item name="android:textStyle">bold</item>
     </style>
 
+    <style name="regular14text">
+        <item name="android:textSize">14sp</item>
+        <item name="android:textColor">@color/default_text_color</item>
+    </style>
+
     <style name="italic16text">
         <item name="android:textSize">16sp</item>
         <item name="android:textColor">@color/default_text_color</item>

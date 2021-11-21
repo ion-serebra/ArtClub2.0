@@ -1,13 +1,10 @@
 package com.oshaev.artclub20.presentation.chats
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
-import android.widget.ImageView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -44,14 +41,14 @@ class ChatsFragment: Fragment() {
         viewModel.getChatsList().subscribe { list ->
             adapter.submitList(list)
             Log.d("ChatsFragment", list.toString())
-
             adapter.chatClickListener
         }
 
         adapter.chatClickListener = {
-            var intent = Intent(context, ChatActivity::class.java)
-            intent.putExtra("chatId", it.id)
-            startActivity(intent)
+            parentFragmentManager.beginTransaction()
+                .add(R.id.nav_host_fragment_activity_main, ChatFragment(chatId = it.key))
+                .addToBackStack("null").commit()
+            (activity as MainActivity).hideBottomNav()
         }
 
         return rootView

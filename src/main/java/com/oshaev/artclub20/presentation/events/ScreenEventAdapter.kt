@@ -5,6 +5,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.oshaev.artclub20.R
+import com.oshaev.artclub20.application.dp2px
 import com.oshaev.artclub20.application.getDimen
 import com.oshaev.artclub20.application.setMargin
 import ru.sovcomcard.halva.v1.util.DiffUtilHelper
@@ -19,13 +20,15 @@ class ScreenEventAdapter: SimpleListAdapter<EventsRow, ScreenEventAdapter.ViewHo
 
     private enum class ViewType {
         TITLE,
-        RECYCLER
+        RECYCLER,
+        CATEGORY
     }
 
     override fun getItemViewType(position: Int): Int {
         return when (getItem(position)) {
             is EventsTitleRow -> ViewType.TITLE
             is EventsRecyclerRow -> ViewType.RECYCLER
+            is EventsCategoryRow -> ViewType.CATEGORY
         }.ordinal
     }
 
@@ -49,6 +52,13 @@ class ScreenEventAdapter: SimpleListAdapter<EventsRow, ScreenEventAdapter.ViewHo
                     )
                 }
             }
+            ViewType.CATEGORY -> CategoryViewHolder(EventsScreenRecyclerLayout(parent.context)).apply {
+                configure(
+                    top = getDimen(R.dimen.event_screen_margin_top),
+                    horizontal = getDimen(R.dimen.event_screen_margin_horizontal),
+                    bottom = getDimen(R.dimen.event_screen_margin_bottom)
+                )
+            }
         }
     }
 
@@ -59,18 +69,35 @@ class ScreenEventAdapter: SimpleListAdapter<EventsRow, ScreenEventAdapter.ViewHo
             with(view) {
                 setData(item.data)
                 Log.d("EventAdapter", "title created")
-
             }
         }
     }
 
     inner class RecycerViewHolder(val view: EventsScreenRecyclerLayout): ViewHolder(view) {
+
         override fun bind(item: EventsRow) {
             item as EventsRecyclerRow
-            with(view) {
-                setData(item.data)
-                Log.d("EventAdapter", "recycler created")
+            if (item.id != "category") {
+                with(view) {
+                    setData(item.data)
+                    Log.d("EventAdapter", "recycler created")
+                }
+            } else {
+                var width = 130
+                view.layoutParams = ViewGroup.LayoutParams(width.dp2px(view.context), width.dp2px(view.context))
+                view.setData(item.data)
             }
+        }
+    }
+
+    inner class CategoryViewHolder(val view: EventsScreenRecyclerLayout): ViewHolder(view) {
+
+        override fun bind(item: EventsRow) {
+            item as EventsCategoryRow
+                with(view) {
+                    setDataCategory(item.data)
+                    Log.d("EventAdapter", "categories created")
+                }
         }
     }
 
@@ -90,5 +117,4 @@ class ScreenEventAdapter: SimpleListAdapter<EventsRow, ScreenEventAdapter.ViewHo
             )
         }
     }
-
 }

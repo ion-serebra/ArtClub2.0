@@ -58,6 +58,8 @@ class ScheduleRepositoryImpl(val auth: FirebaseAuth, val realtimeDatabase: Fireb
                 //if(snapshot.getValue(ScheduleItemDto::class.java)?.cabinet.equals())
 
                 val ti = object: GenericTypeIndicator<Map<String, ScheduleItemDto>>() {}
+                Log.d("ScheduleRepository", "Added: " + snapshot.getValue().toString())
+
                 if(snapshot.getValue(ti) != null) {
                     scheduleList = snapshot.getValue(ti)!!.map { it.value }.filter { it.cabinet.equals(cabinet) }
                 }
@@ -92,7 +94,7 @@ class ScheduleRepositoryImpl(val auth: FirebaseAuth, val realtimeDatabase: Fireb
     }
 
     override fun sendBookingToDB(booking: BookingModel) {
-        realtimeDatabase.getReference("bookings").push().setValue(booking)
+        realtimeDatabase.getReference("bookings").child("bookings").push().setValue(booking)
         Log.d("AddBookingModel", "Booking sended: " + booking.toString())
     }
 

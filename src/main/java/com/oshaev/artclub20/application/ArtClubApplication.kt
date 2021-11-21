@@ -29,7 +29,6 @@ class ArtClubApplication: Application() {
         val networkModule: FirebaseModule = FirebaseModule()
         lateinit var auth: FirebaseAuth
         lateinit var user: User
-        //val realtimeDatabase = FirebaseDatabase.getInstance()
     }
 
     override fun onCreate() {
@@ -41,9 +40,7 @@ class ArtClubApplication: Application() {
         authRepository = AuthRepositoryImpl(FirebaseAuth.getInstance(), networkModule.createUsersReference())
         chatsRepository = ChatsRepositoryImpl()
 
-
         val sharedPreference =  getSharedPreferences("PREFERENCE_NAME",Context.MODE_PRIVATE)
-        //user = JsonReader sharedPreference.getString("user", "")
 
         authRepository.getCurrentUser().subscribe {
             user = it

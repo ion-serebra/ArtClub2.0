@@ -18,6 +18,7 @@ class EventsScreenRecyclerLayout  @JvmOverloads constructor(
 
     private var recyclerView: RecyclerView
     val eventsAdapter: EventsListSimpleAdapter = EventsListSimpleAdapter()
+    val categoryAdapter: EventAdapter = EventAdapter()
 
     init {
         View.inflate(context, R.layout.item_event_recycler_view, this)
@@ -32,8 +33,12 @@ class EventsScreenRecyclerLayout  @JvmOverloads constructor(
         eventsAdapter.submitList(data)
         Log.d("EventScreenPromos", data.toString())
     }
-/*
-    data class Data(
-        val promosList:List<EventScreenEventView.Data>
-    )*/
+
+    // такой костыыль)))
+    fun setDataCategory(data: List<EventData>) {
+        categoryAdapter.submitList(data)
+
+        recyclerView.adapter = categoryAdapter
+        Log.d("EventScreenPromos", data.toString())
+    }
 }

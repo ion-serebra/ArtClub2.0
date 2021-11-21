@@ -1,5 +1,7 @@
 package com.oshaev.artclub20.authentication
 
+import com.oshaev.artclub20.presentation.profile.Friend
+
 data class User(
     val id: String = "",
     val fio: String = "",
@@ -17,4 +19,10 @@ data class User(
     val clothingSize: String = "",
     val creativityDirection: String = "",
     val accessLevel: Int = 0,
+    var key: String = "",
+    var exp: Int = 0,
+    var level: Int = 0,
+    var friends: MutableList<String> = mutableListOf(), // список ключей друзей
+    var tasks: List<String> = listOf(),
+    var events: List<String> = listOf()
     )
