@@ -24,7 +24,8 @@ class ChatFragment(
     var chatType: String = "",
     var member1Key: String = "",
     var member2Key: String = "",
-    var name: String = ""
+    var name: String = "",
+    var openFromProfile: Boolean = false
 ): Fragment() {
 
     lateinit var chat: ChatModel
@@ -46,25 +47,14 @@ class ChatFragment(
         recycler.layoutManager = LinearLayoutManager(context)
         //adapter.setHasStableIds(true)
         //adapter.submitList(chat.messages)
-        sendButton.setOnClickListener {
-            if (chatType != "dialog") {
-                if (editText.text.isNotBlank()) {
-                    ArtClubApplication.chatsRepository.sendMessage(
-                        chat.key,
-                        ChatMessage(
-                            id = UUID.randomUUID().toString(),
-                            key = "",
-                            userKey = ArtClubApplication.user.key,
-                            text = editText.text.toString(),
-                            name = ArtClubApplication.user.fio.substringBefore(delimiter = " "),
-                            imgUrl = "",
-                            timestamp = System.currentTimeMillis(),
-                        )
-                    )
-                }
-            } else {
-                ArtClubApplication.authRepository.getUserByKey(member1Key.takeIf { it == ArtClubApplication.user.key }
+        if (chatType == "dialog") {
+            sendButton.setOnClickListener {
+
+                ArtClubApplication.authRepository.getUserByKey(member1Key.takeIf { it != ArtClubApplication.user.key }
                     ?: member2Key).subscribe {
+                    Log.d("ChatFragment", "получен получатель сообщения:" + it.toString())
+                    Log.d("ChatFragment", "Сообщение в диалоге:" + editText.text)
+
                     if (editText.text.isNotBlank()) {
                         ArtClubApplication.chatsRepository.setChat(
                             chatId,
@@ -81,9 +71,26 @@ class ChatFragment(
                     }
                 }
             }
-            editText.text = SpannableStringBuilder("")
-        }
+        } else {
+            sendButton.setOnClickListener {
+                Log.d("ChatFragment", "Сообщение:" + editText.text)
 
+                if (editText.text.isNotBlank()) {
+                    ArtClubApplication.chatsRepository.sendMessage(
+                        chat.key,
+                        ChatMessage(
+                            id = UUID.randomUUID().toString(),
+                            key = "",
+                            userKey = ArtClubApplication.user.key,
+                            text = editText.text.toString(),
+                            name = ArtClubApplication.user.fio.substringBefore(delimiter = " "),
+                            imgUrl = "",
+                            timestamp = System.currentTimeMillis(),
+                        )
+                    )
+                }
+            }
+        }
 
         ArtClubApplication.chatsRepository.getChatMessages(chatId).subscribe {
             adapter = MessageAdapter(it.toMutableList())
@@ -113,7 +120,9 @@ class ChatFragment(
     }
 
     override fun onDetach() {
-        (activity as MainActivity).unhideBottomNav()
+        if (openFromProfile == false) {
+            (activity as MainActivity).unhideBottomNav()
+        }
         super.onDetach()
     }
 }

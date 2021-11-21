@@ -46,7 +46,8 @@
             android:outlineSpotShadowColor="@android:color/transparent"
             android:layout_weight="1"
             android:hint="Сообщение"
-            android:maxHeight="90dp"></EditText>
+            android:textStyle="italic"
+            android:maxHeight="90dp"/>
 
         <ImageButton
             android:background="@android:color/transparent"

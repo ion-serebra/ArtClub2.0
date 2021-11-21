@@ -1,5 +1,6 @@
 package com.oshaev.artclub20.repository.chats
 
+import android.util.Log
 import com.google.firebase.database.*
 import com.oshaev.artclub20.application.ArtClubApplication
 import com.oshaev.artclub20.repository.ChatDto
@@ -26,7 +27,7 @@ class ChatsRepositoryImpl(): ChatsRepository {
                         ?.map { dtoToData(dataSnapshot.key ?: "", it) }
                         ?.filter {
                             ((it.isDialog == true) && (it.member1Key == ArtClubApplication.user.key || it.member2Key == ArtClubApplication.user.key))
-                                    || it.isDialog == false
+                                    || it.isDialog == false || it.isDialog == null
                         } ?: emptyList() // если диалог, проверяем есть ли в списке участников наш текущий юзер
                     chatsListData.onNext(chatsList)
                 }
@@ -131,6 +132,8 @@ class ChatsRepositoryImpl(): ChatsRepository {
         member1Name: String,
         member2Name: String
     ) {
+        Log.d("ChatRepo", key + "name: " + name + "message: " + message)
+
         chatsReference.child(key).child("name").setValue(name)
         chatsReference.child(key).child("member1Key").setValue(member1Key)
         chatsReference.child(key).child("member2Key").setValue(member2Key)
