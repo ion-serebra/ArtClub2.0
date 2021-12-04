@@ -54,7 +54,7 @@
 
         <TextView
             android:id="@+id/my_booking_user_fio"
-            style="@style/default_text"
+            style="@style/default16text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="пользователь"
@@ -73,7 +73,7 @@
 
         <TextView
             android:id="@+id/my_booking_cabinet"
-            style="@style/default_text"
+            style="@style/default16text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="@id/my_booking_title"
@@ -82,7 +82,7 @@
 
         <TextView
             android:id="@+id/my_booking_date"
-            style="@style/default_text"
+            style="@style/default16text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="@id/my_booking_cabinet"
@@ -91,7 +91,7 @@
 
         <TextView
             android:id="@+id/my_booking_time"
-            style="@style/default_text"
+            style="@style/default16text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintStart_toStartOf="@id/my_booking_cabinet"

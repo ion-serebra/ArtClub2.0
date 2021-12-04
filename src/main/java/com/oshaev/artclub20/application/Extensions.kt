@@ -28,6 +28,10 @@ fun CharSequence?.isNotNull(): Boolean {
     return !this.isNullOrEmpty()
 }
 
+fun Int.dp2px(context: Context): Int = (this * context.resources.displayMetrics.density).toInt()
+
+fun Int.px2dp(context: Context): Int = (this / context.resources.displayMetrics.density).toInt()
+
 fun View.makeVisible(): View {
     this.visibility = View.VISIBLE
     return this
@@ -68,6 +72,8 @@ inline fun <reified R> Any.instanceIf(): R? {
 
 fun String.removeBranches(): String { // функция для того, чтобы убрать квадратные скобки из строки
     return this.replace("[", "").replace("]", "")
+
+
 }
 
 

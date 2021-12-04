@@ -19,14 +19,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        style="@style/default_text"
+        style="@style/bold14text"
         app:layout_constraintStart_toEndOf="@id/my_booking_kir_image"
         app:layout_constraintTop_toTopOf="parent"
         android:text="Имя Фамилия" />
 
     <TextView
         android:id="@+id/my_booking_kir_comment"
-        style="@style/default_text"
+        style="@style/default16text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
